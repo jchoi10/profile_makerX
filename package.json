@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/jchoi10/profile_makerX/issues"
   },
-  "homepage": "https://github.com/jchoi10/profile_makerX#readme"
+  "homepage": "https://github.com/jchoi10/profile_makerX#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
 }
