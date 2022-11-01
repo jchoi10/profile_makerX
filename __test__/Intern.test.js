@@ -11,3 +11,9 @@ test ("get intern school", () => {
 
     expect(intern.getSchool()).toEqual(expect.any(String));
 });
+
+test ("get role exmployee", () => {
+    const intern = new Intern("Mike", 32, "mike@example.com", "Columbia University");
+
+    expect(intern.getRole()).toEqual("Intern");
+});
