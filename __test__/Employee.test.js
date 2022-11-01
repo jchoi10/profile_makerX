@@ -19,3 +19,15 @@ test ("get employee id", () => {
 
     expect(employee.getID()).toEqual(expect.any(Number));
 });
+
+test ("get employee email", () => {
+    const employee = new Employee("Michelle", 18, "michelle.work@example.com");
+
+    expect(employee.getEmail()).toEqual(expect.any(String));
+});
+
+test ("get role of employee", () => {
+    const employee = new Employee("Michelle", 18, "michelle.work@example.com");
+
+    expect(employee.getRole()).toEqual("Employee");
+});
