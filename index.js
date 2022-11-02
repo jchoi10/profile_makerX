@@ -122,6 +122,12 @@ const addEmployee = () {
                 }
             }
         },
+        {
+            type: 'confirm',
+            name: 'confirmEmployee',
+            message: 'Would you like to add more employees on the team?',
+            default: false
+        }
     ])
 }
 
