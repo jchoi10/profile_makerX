@@ -67,3 +67,62 @@ const addManager = () => {
         teamGroup.push(manager);
     })
 };
+
+const addEmployee = () {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Who is the employee of this project?',
+            validate: inputName => {
+                if (inputName) {
+                    return true;
+                } else {
+                    console.log ("Please enter the employee's name");
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "What is your employee's id number?",
+            validate: inputId => {
+                if (isNaN(inputId)) {
+                    console.log ("Please enter the employee's id");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is your employee's email?",
+            validate: inputEmail => {
+                if (inputEmail) {
+                    return true;
+                } else {
+                    console.log ("Please enter the employee's email");
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'role',
+            message: "What is your employee's role?",
+            validate: inputRole => {
+                if (isNaN(inputRole)) {
+                    console.log ("Please enter the employee's role");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        },
+    ])
+}
+
+addManager()
