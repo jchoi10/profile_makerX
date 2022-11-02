@@ -5,6 +5,8 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+const teamGroup = [];
+
 const addManager = () => {
     return inquirer.prompt ([
         {
@@ -59,5 +61,9 @@ const addManager = () => {
                 }
             }
         },
-    ])
-}
+    ]) .then(managerProp => {
+        const {name, id, email, officeNumber} = managerProp;
+        const manager = new Manager (name, id, email, officeNumber);
+        teamGroup.push(manager);
+    })
+};
