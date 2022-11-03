@@ -68,7 +68,7 @@ const addManager = () => {
     })
 };
 
-const addEmployee = () {
+const addEmployee = () => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -110,15 +110,21 @@ const addEmployee = () {
             }
         },
         {
-            type: 'input',
+            type: 'list',
             name: 'role',
             message: "What is your employee's role?",
-            validate: inputRole => {
-                if (isNaN(inputRole)) {
-                    console.log ("Please enter the employee's role");
-                    return false;
-                } else {
+            choices: ['Engineer', 'Intern']
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: "What is your engineer's github username?",
+            when: (input) => input.role === 'Engineer',
+            validate: inputGithub => {
+                if (inputGithub) {
                     return true;
+                } else {
+                    console.log("Please enter the engineer's Github username.")
                 }
             }
         },
