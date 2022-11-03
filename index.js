@@ -185,5 +185,11 @@ const writeFile = data => {
 addManager()
 .then(addEmployee)
 .then(teamGroup => {
-    return 
+    return generateHTML(teamGroup);
 })
+.then(webPage => {
+    return writeFile(webPage);
+})
+.catch(err => {
+    console.log(err);
+});
