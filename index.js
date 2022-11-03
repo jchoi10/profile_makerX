@@ -129,12 +129,44 @@ const addEmployee = () => {
             }
         },
         {
+            type: 'input',
+            name: 'school',
+            message: "What is your intern's school?",
+            when: (input) => input.role === 'Intern',
+            validate: inputSchool => {
+                if (inputSchool) {
+                    return true;
+                } else {
+                    console.log("Please enter the intern's school.")
+                }
+            }
+        },
+        {
             type: 'confirm',
             name: 'confirmEmployee',
             message: 'Would you like to add more employees on the team?',
             default: false
         }
-    ])
-}
+    ]) 
+    .then(employeeInfo => {
+        var employeeInfo = {name, id, email, role, github, school, confirmEmployee}
+        var employee
+        if (role === 'Engineer'){
+            employee = new Engineer (name, id, email, github);
+            console.log(employee);
+        } else if (role === 'Intern') {
+            employee = new Intern (name, id, email, school);
+            console.log(employee);
+        }
+        
+        teamGroup.push(employee);
+        if (confirmEmployee) {
+            return addEmployee(teamGroup);
+        } else {
+            return teamGroup;
+        }
+
+    })
+};
 
 addManager()
