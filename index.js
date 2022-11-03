@@ -169,5 +169,16 @@ const addEmployee = () => {
     })
 };
 
+//writing html code
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Your team profile cards are created successfully!")
+        }
+    })
+}
+
 addManager()
 .then(addEmployee)
