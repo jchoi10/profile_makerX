@@ -89,4 +89,32 @@ const generateHomepage = function (employeeCards) {
     `;
 };
 
+generateHTML = (data) => {
+    pageCards = [];
+
+    for (var i = 0; i<data.length; i++) {
+        const employee = data[i];
+        const role = employee.getRole();
+
+        if (role === 'Manager') {
+            const cardManager = generateManager(employee);
+
+            pageCards.push(cardManager);
+        }
+        if (role === 'Engineer') {
+            const cardEngineer = generateEngineer(employee);
+
+            pageCards.push(cardEngineer);
+        }
+        if (role === 'Intern') {
+            const cardIntern = generateIntern(employee);
+
+            pageCards.push(cardIntern);
+        }
+    }
+
+    const employeeCards = pageCards.join('');
+    return generateHomepage(employeeCards);
+};
+
 module.exports = generateHTML;
