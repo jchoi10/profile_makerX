@@ -149,7 +149,7 @@ const addEmployee = () => {
         }
     ]) 
     .then(employeeInfo => {
-        var employeeInfo = {name, id, email, role, github, school, confirmEmployee}
+        var {name, id, email, role, github, school, confirmEmployee} = employeeInfo
         var employee
         if (role === 'Engineer'){
             employee = new Engineer (name, id, email, github);
@@ -170,3 +170,4 @@ const addEmployee = () => {
 };
 
 addManager()
+.then(addEmployee)
