@@ -1,3 +1,5 @@
+const generateHTML = require('./src/generateHTML');
+
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -182,3 +184,6 @@ const writeFile = data => {
 
 addManager()
 .then(addEmployee)
+.then(teamGroup => {
+    return 
+})

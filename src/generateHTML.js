@@ -1,4 +1,4 @@
-const generateHomepage = function () {
+const generateHomepage = function (employeeCards) {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -14,10 +14,25 @@ const generateHomepage = function () {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
-    
+        <header>
+            <nav class="navbar" id="navbar">
+                <span class="navbar-brand m-0 h1 w-100 text-center" id="navbar-text">Team Profile</span>
+            </nav>
+
+            <main>
+            <div class="container">
+                <div class="row justify-content-center" id="team-cards">
+                  <!--Employee Cards-->
+                  ${employeeCards}
+                </div>
+            </div>
+      </main>
+        </hearder>
     </body>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     </html>
-    `
-}
+    `;
+};
+
+module.exports = generateHTML;
